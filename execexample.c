@@ -10,6 +10,7 @@ int main() {
   if (pid == 0) {
     printf("Child with pid %d, about to exec ls\n", getpid());
     execv("/bin/ls", args);
+    printf("check");
   } else {
     printf("I am the parent.  I am waiting for my child %d to die.\n", pid);
     int status;
