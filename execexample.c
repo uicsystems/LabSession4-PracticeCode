@@ -4,12 +4,12 @@
 
 int main() {
 
-  char *args[] = {"/bin/ls", "-l", (char *)0};
+  char *argsarray[] = {"/bin/ls", "-l", (char *)0};
   
   int pid = fork();
   if (pid == 0) {
     printf("Child with pid %d, about to exec ls\n", getpid());
-    execv("/bin/ls", args);
+    execv(argsarray[0], argsarray);
   } else {
     printf("I am the parent.  I am waiting for my child %d to die.\n", pid);
     int status;
